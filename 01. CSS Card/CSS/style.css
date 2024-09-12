@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Montserrat, Sans-serif;
+  color: aliceblue;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(to right top, #180b41, #3c2e7a, #93093d);
+}
+
+main {
+  min-width: 40rem;
+  min-height: 600px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right bottom, #2b1651, #981044);
+  box-shadow: 0.7rem 0.7rem 1rem rgba(0, 0, 0, 0.436);
+  animation: slideUp 0.5s ease forwards;
+}
+
+hr {
+  margin: 0.5rem 0.5rem 2rem 0.5rem;
+}
+
+.navigation {
+  margin: 1rem;
+  top: 0;
+  animation: slideDown 1s ease-out backwards;
+  transition: all 0.8s ease;
+}
+
+.navigation td {
+  width: 8.68rem;
+  border: 0;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.navigation td:hover {
+  background-color: #180b4174;
+  border-radius: 0.5rem;
+}
+
+.containerA {
+  height: 28rem;
+  width: 19rem;
+  overflow: hidden;
+  background: linear-gradient(
+    to right bottom,
+    #180b41,
+    #2b1651,
+    #3c2e7a,
+    #981044
+  );
+  padding: 1rem;
+  margin: 30px;
+  border-radius: 0.5rem;
+  border: 3px solid rgb(117, 0, 0);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.436);
+  animation: slideOut 1.5s ease-in-out forwards;
+}
+
+.containerB {
+  height: 28rem;
+  width: 19rem;
+  overflow: hidden;
+  background: linear-gradient(
+    to right bottom,
+    #180b41,
+    #2b1651,
+    #3c2e7a,
+    #981044
+  );
+  padding: 1rem;
+  margin: 30px;
+  border-radius: 0.5rem;
+  border: 3px solid rgb(117, 0, 0);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.436);
+  animation: slideIn 1.5s ease-in-out forwards;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  animation: slideIn 1.5s ease-in-out forwards;
+}
+
+.top img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px double rgba(145, 0, 0, 0.5);
+  margin: 1rem;
+  margin-left: 0;
+  outline: #180b41;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.title p:first-child {
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.title p:nth-child(2) {
+  font-size: 0.8rem;
+  padding-left: 3px;
+  display: inline;
+  background: linear-gradient(to right, #93093d, #af0072);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.center {
+  margin: 1rem 0.5rem 1rem 0.5rem;
+  min-height: 8rem;
+  animation: slideIn 2s ease-in-out forwards;
+}
+
+.centerA {
+  margin: 1rem 0.5rem 1rem 0.5rem;
+  min-height: 8rem;
+  animation: slideOut 2s ease-in-out backwards;
+}
+
+.center > p {
+  font-family: Montserrat, Sans-serif;
+  font-size: 0.9rem;
+  text-align: justify;
+  background: linear-gradient(
+    to right bottom,
+    rgba(16, 5, 50, 0.6),
+    rgba(60, 46, 122, 0.5),
+    rgba(122, 46, 114, 0.5)
+  );
+}
+
+.centerA > p {
+  font-family: Montserrat, Sans-serif;
+  word-spacing: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(
+    to right bottom,
+    rgba(16, 5, 50, 0.6),
+    rgba(60, 46, 122, 0.5),
+    rgba(122, 46, 114, 0.5)
+  );
+}
+
+.quotes {
+  font-family: Montserrat, Sans-serif;
+  word-spacing: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bottom {
+  margin: 0.5rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideIn 2.6s ease-in-out forwards;
+}
+
+.bottom button {
+  font-family: Montserrat, sans-serif;
+  color: aliceblue;
+  background: linear-gradient(
+    to right bottom,
+    #981044,
+    rgb(195, 13, 119),
+    #ce12a5
+  );
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem #180b41;
+  transition: transform 0.3s;
+}
+
+.bottom button:hover {
+  transform: scale(1.1);
+}
+
+.bottom button:active {
+  bottom: 0;
+  transform: scale();
+}
+
+.bottom img {
+  visibility: hidden;
+  position: fixed;
+  width: 7rem;
+  background: linear-gradient(to right bottom, #981044, #ce12a5);
+  border-radius: 0.7rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #180b41;
+}
+
+.bottom img.visible {
+  visibility: visible;
+}
+
+/*************************/
+/*Kartu 1*/
+
+.topBg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png");
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 60%,
+      rgb(43, 22, 81, 1) 100%
+    ),
+    url("https://terrigen-cdn-dev.marvel.com/content/prod/2x/fox_deadpool_lob_mas_mob_01.jpg");
+  height: 40%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0.4rem;
+  animation: slideDown 2.3s ease-in-out backwards;
+}
+
+.topBg p {
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(24, 11, 65, 0.5),
+    rgba(24, 11, 65, 0.5),
+    rgba(60, 46, 122, 0.9)
+  );
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 4.36rem 3.44rem;
+  border-radius: 0.4rem;
+  background-size: cover;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  font-family: Poppins;
+  animation: slideOut 2.5s ease-in-out backwards;
+}
+
+.rate p:first-child {
+  font-size: 3rem;
+  font-weight: 500;
+  text-shadow: 3px 3px 3px #210c49;
+}
+
+.rate p:nth-child(2) {
+  font-size: 2rem;
+  margin: 0.5rem;
+
+  font-weight: 500;
+  text-shadow: 3px 3px 3px #210c49;
+}
+
+.rate p:nth-child(3) {
+  margin: 0;
+  font-size: 3rem;
+  width: 2rem;
+  height: 2rem;
+  background: url("https://img.icons8.com/?size=100&id=81443&format=png&color=000000");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  background: linear-gradient(120deg, #3c2e7a, #4d1b78, #981044);
+  border-radius: 2rem;
+  box-shadow: 3px 3px 5px #210c4970;
+  transition: transform 0.3s;
+  animation: slideUp 2.3s ease-in-out backwards;
+}
+
+.footer:hover {
+  transform: scale(1.025);
+  background: linear-gradient(to right, #981044, #da107f);
+}
+
+.footer a {
+  transition: transform 0.3s;
+}
+
+.footer a:hover {
+  transform: scale(1.15);
+}
+
+.footer a:first-child {
+  margin: 1rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  background: url("https://img.icons8.com/?size=100&id=shFooJRIJgB6&format=png&color=FFFFFF");
+  background-size: cover;
+}
+
+.footer a:nth-child(2) {
+  margin: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background: url("https://img.icons8.com/?size=100&id=85154&format=png&color=FFFFFF");
+  background-size: cover;
+}
+
+.footer a:nth-child(3) {
+  margin: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background: url("https://img.icons8.com/?size=100&id=YfCbGWCWcuar&format=png&color=FFFFFF");
+  background-size: cover;
+}
+
+.footer a:last-child {
+  margin: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background: url("https://img.icons8.com/?size=100&id=37325&format=png&color=FFFFFF");
+  background-size: cover;
+}
+
+/* Khusus Animasi Transisi */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-500px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

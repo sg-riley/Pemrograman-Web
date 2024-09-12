@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karya</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="containerA">
+        <div class="topBg">
+          <p>DEADPOOL</p>
+        </div>
+        <hr />
+        <div class="centerA">
+          <p>
+            <span class="quotes">"</span>With great power comes great
+            irresponsibility.<span class="quotes">"</span>
+          </p>
+          <div class="rate">
+            <p>2024 |</p>
+            <p>8/10</p>
+            <p></p>
+          </div>
+        </div>
+        <div class="footer">
+          <a
+            href="https://www.marvel.com/movies/deadpool-and-wolverine"
+            target="_blank"
+          ></a>
+          <a href="https://i.imgflip.com/8nhyup.jpg" target="_blank"></a>
+          <a
+            href="https://upload.wikimedia.org/wikipedia/id/9/9b/Skibidi_toilet_screenshot.png"
+            target="_blank"
+          ></a>
+          <a
+            href="https://youtu.be/WePNs-G7puA?si=QiR10XPGZtlxovC7"
+            target="_blank"
+          ></a>
+        </div>
+      </div>
+      <div class="containerB">
+        <div class="top">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png"
+            alt="Foto Profil"
+          />
+          <div class="title">
+            <p>Deadpool</p>
+            <p>From Marvel Studio.</p>
+          </div>
+        </div>
+        <hr />
+        <div class="center">
+          <p>
+            Wade Wilson (Ryan Reynolds) is a former Special Forces operative who
+            now works as a mercenary. His world comes crashing down when evil
+            scientist Ajax (Ed Skrein) tortures, disfigures and transforms him
+            into Deadpool. The rogue experiment leaves Deadpool with accelerated
+            healing powers and a twisted sense of humor.
+          </p>
+        </div>
+        <div class="bottom">
+          <button class="btn2" onclick="setVisible()">CLICK</button>
+          <img src="/Picture/QR2.png" alt="QR Code" class="qr" />
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function setVisible() {
+        const button = document.querySelector(".btn2");
+        const image = document.querySelector(".qr");
+        image.style.visibility = "visible";
+      }
+    </script>
+  </body>
+</html>
