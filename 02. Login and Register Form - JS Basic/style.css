@@ -27,7 +27,7 @@ main {
   background-color: mintcream;
   background-size: cover;
   min-height: fit-content;
-  min-width: 30rem;
+  min-width: 30vw;
   padding: 2rem;
   border-radius: 0.5rem;
   display: flex;
