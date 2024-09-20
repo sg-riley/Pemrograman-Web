@@ -14,21 +14,42 @@
   </head>
   <body>
     <header>
-      <nav class="navbar bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary p-1">
         <div class="container-fluid">
-          <a class="navbar-brand" href="login.html">Login</a>
-          <a class="navbar-brand" href="register.html">Register</a>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="navbar-brand">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Login</a
+                >
+              </li>
+              <li class="navbar-brand">
+                <a class="nav-link active" href="register.html">Register</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </header>
@@ -59,13 +80,14 @@
           <div>
             <label for="password">Password</label>
             <br />
+            <div class="input-group mb-3">
+              <input id="password-input" type="password" class="form-control" placeholder="Masukkan Password" aria-label="Password" aria-describedby="button-addon2">
+              <span onclick="showPassword()" class="input-group-text" id="s1">
+                <img id="iconImage" src="invisible.png" alt="visible icon">
+              </span>
 
-            <input
-              type="password"
-              name="password"
-              id="password-input"
-              placeholder="Masukkan Password"
-            />
+            </div>
+           
           </div>
         </fieldset>
         <a href="#" id="forgot-btn" onclick="return false">Forgot Account</a
@@ -116,6 +138,22 @@
           `Username Anda ${username}, Email Anda ${email}, dan Password Anda ${password}`
         );
       };
+
+      function showPassword(){
+        const passwordInput = document.getElementById("password-input");
+        const icon = document.querySelector("#iconImage");
+        const test = document.getElementById("s1");
+        console.log(`${test.innerHTML}`);
+        
+        if(passwordInput.type === "password"){
+          passwordInput.type ="text";
+          icon.src = "visible.png";
+        }else if(passwordInput.type === "text"){
+          passwordInput.type = "password";
+          icon.src = "invisible.png";
+        }
+      } 
+           
     </script>
   </body>
 </html>

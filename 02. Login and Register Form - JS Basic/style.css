@@ -1,5 +1,6 @@
 body {
   background-color: purple;
+  overflow: visible;
 }
 
 .navbar > .container-fluid {
@@ -17,7 +18,6 @@ body {
 main {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
