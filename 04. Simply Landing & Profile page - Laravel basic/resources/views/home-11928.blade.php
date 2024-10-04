@@ -15,6 +15,7 @@
         font-family: 'Gowun Batang';
       }
     </style>
+
   </head>
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-light-subtle sticky-top" data-bs-theme="dark">
@@ -93,73 +94,96 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-      document.getElementById("light-mode").addEventListener("click", function() {
-        document.querySelector(".navbar").setAttribute("data-bs-theme", "light");
-        document.body.classList.remove("bg-dark");
-        document.body.classList.add("bg-light");
 
-        const darkIcon = document.getElementById("moon-icon");
-        const lightIcon = document.getElementById("sun-icon");
-        const themeIcon = document.getElementById("theme-icon");
-        darkIcon.src = "images/moonBlack.png";
-        lightIcon.src = "images/sun.png";
-        themeIcon.src = "images/moonBlack.png";
-
-        document.querySelector("#active-border").classList.remove("border-light");
-        document.querySelector("#active-border").classList.add("border-dark");
-
-        document.querySelector("#footer-border").classList.remove("border-light");
-        document.querySelector("#footer-border").classList.add("border-dark");
-        
-        document.querySelectorAll(".btn-dark").forEach(button => {
-          button.classList.remove("btn-dark");
-          button.classList.add("btn-light");
-        });
-
-        const instaIcon = document.getElementById("instaIcon");
-        const linkIcon = document.getElementById("linkIcon");
-        const gitIcon = document.getElementById("gitIcon");
-        instaIcon.src = "https://img.icons8.com/material-outlined/30/instagram-new--v1.png";
-        linkIcon.src = "https://img.icons8.com/ios-glyphs/30/linkedin.png";
-        gitIcon.src = "https://img.icons8.com/ios-glyphs/30/github.png";
-
-        
+      //Ini untuk set tema berdasarkan preferensi yg sdh dipilih pengguna di toggle button
+      document.addEventListener("DOMContentLoaded", function() {
+          localStorage.removeItem('theme');
+          let savedTheme = localStorage.getItem('theme');
+          console.log(savedTheme);
+          if(!savedTheme){
+              savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
+              updateTheme(savedTheme ? 'light' : 'dark');
+          }else{
+              updateTheme(savedTheme);
+              console.log('tes');
+          }
       });
 
+
+      //Ini untuk ngubah ngubah tema web ketika toggle button dipencet
+      document.getElementById("light-mode").addEventListener("click", function() {  
+          localStorage.setItem('theme', 'light'); 
+          updateTheme('light');
+      });
 
       document.getElementById("dark-mode").addEventListener("click", function() {
-        document.querySelector(".navbar").setAttribute("data-bs-theme", "dark");
-        document.body.classList.remove("bg-light");
-        document.body.classList.add("bg-dark");
+          localStorage.setItem('theme', 'dark'); 
+          updateTheme('dark');
+      });
 
+
+      //Ini fungsi untuk ngubah tema asset asset dan komponen yg dipake
+      function updateTheme(theme){
+        
         const darkIcon = document.getElementById("moon-icon");
         const lightIcon = document.getElementById("sun-icon");
         const themeIcon = document.getElementById("theme-icon");
-        darkIcon.src = "images/moon.png";
-        lightIcon.src = "images/sunWhite.png";
-        themeIcon.src = "images/moon.png";
-
-        document.querySelector("#active-border").classList.remove("border-dark");
-        document.querySelector("#active-border").classList.add("border-light");
-        
-        document.querySelector("#footer-border").classList.remove("border-dark");
-        document.querySelector("#footer-border").classList.add("border-light");
-        
-        document.querySelectorAll(".btn-light").forEach(button => {
-          button.classList.remove("btn-light");
-          button.classList.add("btn-dark");
-        });
-
         const instaIcon = document.getElementById("instaIcon");
         const linkIcon = document.getElementById("linkIcon");
         const gitIcon = document.getElementById("gitIcon");
-        instaIcon.src = "https://img.icons8.com/material-outlined/30/FFFFFF/instagram-new--v1.png";
-        linkIcon.src = "https://img.icons8.com/ios-glyphs/30/FFFFFF/linkedin.png";
-        gitIcon.src = "https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png";
-        
-      });
 
-      
+        if(theme==='light'){
+            document.querySelector(".navbar").setAttribute("data-bs-theme", "light");
+            document.body.classList.remove("bg-dark");
+            document.body.classList.add("bg-light");
+
+            darkIcon.src = "images/moonBlack.png";
+            lightIcon.src = "images/sun.png";
+            themeIcon.src = "images/moonBlack.png";
+
+            document.querySelector("#active-border").classList.remove("border-light");
+            document.querySelector("#active-border").classList.add("border-dark");
+
+            document.querySelector("#footer-border").classList.remove("border-light");
+            document.querySelector("#footer-border").classList.add("border-dark");
+            
+            document.querySelectorAll(".btn-dark").forEach(button => {
+                button.classList.remove("btn-dark");
+                button.classList.add("btn-light");
+            });
+
+            instaIcon.src = "https://img.icons8.com/material-outlined/30/instagram-new--v1.png";
+            linkIcon.src = "https://img.icons8.com/ios-glyphs/30/linkedin.png";
+            gitIcon.src = "https://img.icons8.com/ios-glyphs/30/github.png";
+        
+          }else{
+            document.querySelector(".navbar").setAttribute("data-bs-theme", "dark");
+            document.body.classList.remove("bg-light");
+            document.body.classList.add("bg-dark");
+
+            darkIcon.src = "images/moon.png";
+            lightIcon.src = "images/sunWhite.png";
+            themeIcon.src = "images/moon.png";
+
+            document.querySelector("#active-border").classList.remove("border-dark");
+            document.querySelector("#active-border").classList.add("border-light");
+            
+            document.querySelector("#footer-border").classList.remove("border-dark");
+            document.querySelector("#footer-border").classList.add("border-light");
+            
+            document.querySelectorAll(".btn-light").forEach(button => {
+              button.classList.remove("btn-light");
+              button.classList.add("btn-dark");
+            });
+
+            instaIcon.src = "https://img.icons8.com/material-outlined/30/FFFFFF/instagram-new--v1.png";
+            linkIcon.src = "https://img.icons8.com/ios-glyphs/30/FFFFFF/linkedin.png";
+            gitIcon.src = "https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png";
+
+        }
+
+      }
+
 
     </script>
 </body>

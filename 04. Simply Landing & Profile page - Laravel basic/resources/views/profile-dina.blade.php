@@ -56,8 +56,8 @@
         </div>
       </nav>
       <h1 class="text-light text-center m-4">My Profile</h1>
-      <main class="d-flex flex-wrap justify-content-around">
-        <div class="card bg-dark text-white border-secondary p-2 m-3" style="width: 18rem;">
+      <main class="d-flex flex-wrap justify-content-around" >
+        <div class="card border-secondary p-2 m-3" style="width: 18rem;" data-bs-theme="dark">
             <img src="{{asset('images/gojo.jpg')}}" class="card-img-top rounded-circle p-4" alt="satoru">
             <div class="card-body">
               <h5 class="card-title text-center">{{$nama1}} - {{$npm1}}</h5>
@@ -65,7 +65,7 @@
               <a href="{{url('home-11928')}}" class="btn btn-outline-success">Back to Homepage </a>
             </div>
           </div>
-        <div class="card bg-dark text-white border-secondary p-2 m-3" style="width: 18rem;">
+        <div class="card border-secondary p-2 m-3" style="width: 18rem;" data-bs-theme="dark">
             <img src="{{asset('images/pasPhoto.jpg')}}" class="card-img-top rounded-circle p-4" alt="dina">
             <div class="card-body">
               <h5 class="card-title text-center">{{$nama2}} - {{$npm2}}</h5>
@@ -73,7 +73,7 @@
               <a href="{{url('home-11928')}}" class="btn btn-outline-success">Back to Homepage</a>
             </div>
           </div>
-        <div class="card bg-dark text-white border-secondary p-2 m-3" style="width: 18rem;">
+        <div class="card border-secondary p-2 m-3" style="width: 18rem;" data-bs-theme="dark">
             <img src="{{asset('images/dog.jpg')}}" class="card-img-top rounded-circle p-4" alt="dogi">
             <div class="card-body">
               <h5 class="card-title text-center">{{$nama3}} - {{$npm3}}</h5>
@@ -87,40 +87,77 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+
+        //untuk set tema berdasarkan preferensi
+        document.addEventListener("DOMContentLoaded", function() {
+          localStorage.removeItem('theme');
+          let savedTheme = localStorage.getItem('theme');
+          console.log(savedTheme);
+          if(!savedTheme){
+              savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
+              updateTheme(savedTheme ? 'light' : 'dark');
+          }else{
+              updateTheme(savedTheme);
+                console.log('tes');
+          }
+      });
+
+        //untuk ngubah ngubah theme dari toggle button
         document.getElementById("light-mode").addEventListener("click", function() {
-          document.querySelector(".navbar").setAttribute("data-bs-theme", "light");
-          document.body.classList.remove("bg-dark");
-          document.body.classList.add("bg-light");
-  
-          const darkIcon = document.getElementById("moon-icon");
-          const lightIcon = document.getElementById("sun-icon");
-          const themeIcon = document.getElementById("theme-icon");
-          darkIcon.src = "images/moonBlack.png";
-          lightIcon.src = "images/sun.png";
-          themeIcon.src = "images/moonBlack.png";
-  
-          document.querySelector("#active-border").classList.remove("border-light");
-          document.querySelector("#active-border").classList.add("border-dark");
-          
+            localStorage.setItem('theme', 'light'); 
+            updateTheme('light');
         });
-  
-  
+
         document.getElementById("dark-mode").addEventListener("click", function() {
-          document.querySelector(".navbar").setAttribute("data-bs-theme", "dark");
-          document.body.classList.remove("bg-light");
-          document.body.classList.add("bg-dark");
-  
-          const darkIcon = document.getElementById("moon-icon");
-          const lightIcon = document.getElementById("sun-icon");
-          const themeIcon = document.getElementById("theme-icon");
-          darkIcon.src = "images/moon.png";
-          lightIcon.src = "images/sunWhite.png";
-          themeIcon.src = "images/moon.png";
-  
-          document.querySelector("#active-border").classList.remove("border-dark");
-          document.querySelector("#active-border").classList.add("border-light");
-          
+            localStorage.setItem('theme', 'dark'); 
+            updateTheme('dark');
         });
+
+        
+
+        //ubah semua komponen berdasarkan tema
+        function updateTheme(theme){
+            localStorage.setItem('toggleAccess', 'yes');
+            const darkIcon = document.getElementById("moon-icon");
+            const lightIcon = document.getElementById("sun-icon");
+            const themeIcon = document.getElementById("theme-icon");
+            
+
+            if(theme==='light'){
+                document.querySelector(".navbar").setAttribute("data-bs-theme", "light");
+                document.body.classList.remove("bg-dark");
+                document.body.classList.add("bg-light");
+
+                darkIcon.src = "images/moonBlack.png";
+                lightIcon.src = "images/sun.png";
+                themeIcon.src = "images/moonBlack.png";
+
+                document.querySelector("#active-border").classList.remove("border-light");
+                document.querySelector("#active-border").classList.add("border-dark");
+
+                document.querySelectorAll(".card").forEach(card => {
+                    card.setAttribute("data-bs-theme", "light");
+                });
+
+            }else{
+                document.querySelector(".navbar").setAttribute("data-bs-theme", "dark");
+                document.body.classList.remove("bg-light");
+                document.body.classList.add("bg-dark");
+
+                darkIcon.src = "images/moon.png";
+                lightIcon.src = "images/sunWhite.png";
+                themeIcon.src = "images/moon.png";
+
+                document.querySelector("#active-border").classList.remove("border-dark");
+                document.querySelector("#active-border").classList.add("border-light");
+                
+                document.querySelectorAll(".card").forEach(card => {
+                    card.setAttribute("data-bs-theme", "dark");
+                });
+
+            }
+
+        }
   
       </script>
 </body>
